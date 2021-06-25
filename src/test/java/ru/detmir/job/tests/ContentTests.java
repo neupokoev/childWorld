@@ -11,7 +11,7 @@ public class ContentTests extends TestBase {
     @Test
     @Description("Content test")
     @DisplayName("Test на проверку кнопки показа всех вакансий")
-    void generatedTest1() {
+    void checkVacanciesPageLazyLoad() {
         step("Open https://job.detmir.ru/", () -> {
             Selenide.open("https://job.detmir.ru/");
         });
@@ -37,7 +37,7 @@ public class ContentTests extends TestBase {
     @Test
     @Description("Content test")
     @DisplayName("Test фильтра по станции метро")
-    void generatedTest2() {
+    void checkVacanciesPageMetroStationFilter() {
         step("Открыть страницу вакансий на сайте https://job.detmir.ru", () -> {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
@@ -59,7 +59,7 @@ public class ContentTests extends TestBase {
     @Test
     @Description("Content test")
     @DisplayName("Test вакансии ведущего тестировщика")
-    void generatedTest3() {
+    void checkQAVacancy() {
         step("Открыть страницу вакансий на сайте https://job.detmir.ru", () -> {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
