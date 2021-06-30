@@ -4,8 +4,15 @@ import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.detmir.job.helpers.DriverUtils;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ContentTests extends TestBase {
     @Test
@@ -17,19 +24,22 @@ public class ContentTests extends TestBase {
         });
 
         step("Перейти через левое меню в вакансии", () -> {
-            step("// todo: just add selenium action");
+            $$("ul li a").findBy(text("Вакансии")).click();
         });
 
         step("Выбрать категорию ИТ", () -> {
-            step("// todo: just add selenium action");
+            $$(".vacancies-link").findBy(text("Информационные технологии")).click();
         });
 
         step("Больше вакансий - нажать на кнопку \"показать больше\"", () -> {
-            step("// todo: just add selenium action");
+            $("div .vacancies-more__show-more").scrollIntoView(true).click();
         });
 
-        step("Проверить, что пришёл ответ 200", () -> {
-            step("// todo: just add selenium action");
+        step("Проверить, что нет ошибок в консоли", () -> {
+            String consoleLogs = DriverUtils.getConsoleLogs();
+            String errorText = "500 (Internal Server Error)";
+
+            assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
 
@@ -42,47 +52,47 @@ public class ContentTests extends TestBase {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
 
-        step("Выбрать категорию ИТ", () -> {
-            step("// todo: just add selenium action");
-        });
-
         step("Выбрать метро - Окружная", () -> {
-            step("// todo: just add selenium action");
+            $("#subway").$(".subway__input").val("Окружная");
+            $(byText("Окружная (МЦК)")).click();
+            $("#subway").$(".subway__input").shouldHave(value("Окружная (МЦК)"));
         });
 
-        step("Проверить, что пришёл ответ 200", () -> {
-            step("// todo: just add selenium action");
+        step("Проверить, что нет 500 ошибки в консоли", () -> {
+            String consoleLogs = DriverUtils.getConsoleLogs();
+            String errorText = "500 (Internal Server Error)";
+
+            assertThat(consoleLogs).doesNotContain(errorText);
         });
 
     }
 
     @Test
     @Description("Content test")
-    @DisplayName("Test вакансии ведущего тестировщика")
+    @DisplayName("Test вакансии ведущего тестировщика по автоматизации")
     void checkQAVacancy() {
         step("Открыть страницу вакансий на сайте https://job.detmir.ru", () -> {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
 
-        step("Перейти через левое меню в вакансии", () -> {
-            step("// todo: just add selenium action");
+        step("Выбрать категорию ИТ", () -> {
+            $$(".vacancies-link").findBy(text("Информационные технологии")).click();
         });
 
-
-        step("Выбрать 3 страницу", () -> {
-            step("// todo: just add selenium action");
+        step("Выбрать 3 страницу вакансий", () -> {
+            $(".vacancies-more-pagination__link", 3).click();
         });
 
-        step("Найти вакансию ведущего тестировщика", () -> {
-            step("// todo: just add selenium action");
+        step("Найти вакансию ведущего тестировщика по автоматизации", () -> {
+            $$(".vacancies-more-item__name").findBy(text("Automation QA")).click();
         });
 
         step("Проверить, что в требованиях есть Selenide", () -> {
-            step("// todo: just add selenium action");
+            $(withText("Наш стек: Java 16, Selenide, Rest Assured")).shouldBe(visible);
         });
 
         step("Проверить, что зп = 350т", () -> {
-            step("// todo: just add selenium action");
+            $(".vacancy-detail__price").shouldHave(text("до 350000 ₽ до вычета налогов"));
         });
     }
 }
