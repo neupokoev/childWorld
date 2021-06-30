@@ -31,6 +31,7 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.aeonbits.owner:owner:1.0.12",
             "org.assertj:assertj-core:3.19.0",
+            "org.slf4j:slf4j-simple:1.7.30",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
