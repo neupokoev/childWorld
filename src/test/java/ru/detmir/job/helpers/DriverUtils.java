@@ -1,10 +1,10 @@
 package ru.detmir.job.helpers;
 
-import ru.detmir.job.config.Project;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.detmir.job.config.Project;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -38,7 +38,8 @@ public class DriverUtils {
         return null;
     }
 
-    public static String getConsoleLogs() { // todo refactor
+    public static String getConsoleLogs() {
+        Selenide.sleep(1000);
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
 }
