@@ -80,7 +80,7 @@ public class ContentTests extends TestBase {
         });
 
         step("Выбрать 3 страницу вакансий", () -> {
-            $(".vacancies-more-pagination__link", 3).click();
+            $(".vacancies-more-pagination__link", 2).click();
         });
 
         step("Найти вакансию ведущего тестировщика по автоматизации", () -> {
