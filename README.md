@@ -24,20 +24,19 @@ ___
 
 ![alt "Запуск через Jenkins"](./images/jenkinsRun.png)
 
-
-##Run tests with filled local.properties:
+### Run tests with filled local.properties:
 
 ```bash
 gradle clean test
 ```
 
-Run tests with not filled local.properties:
+### Run tests with not filled local.properties:
 
 ```bash
 gradle clean -DremoteDriverUrl=https://user1:1234@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
 ```
 
-Serve allure report:
+### Serve allure report:
 
 ```bash
 allure serve build/allure-results
