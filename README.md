@@ -72,16 +72,17 @@ Serve report:
 allure serve build/allure-results
 ```
 
-##screen
+![alt "Запуск через Jenkins"](./src/test/resources/images/jenkinsRun.png "Запуск через Jenkins")
 
 ## Оповещение о результатах прохождения тестов через бот в телеграмме <a href="https://www.jetbrains.com/idea/"><img src="https://starchenkov.pro/qa-guru/img/skills/Telegram.svg" width="30" height="30"  alt="Telegram"/></a>
 
-##screen
+![alt "бот в телеграмме"](./src/test/resources/images/bot.png "бот в телеграмме")
 
 ## Анализ результатов в Jenkins через Allure Reports
-##screen
+![alt "Allure Reports"](./src/test/resources/images/jenkinsResult.png "Allure Reports")
 ## Анализ результатов в Allure TestOps <a href="https://www.jetbrains.com/idea/"><img src="https://starchenkov.pro/qa-guru/img/skills/Allure_EE.svg" width="40" height="40"  alt="Allure EE"/></a>
-##screen
+![alt "Allure TestOps"](./src/test/resources/images/allureTO1.png "Allure TestOps")
+![alt "Allure TestOps"](./src/test/resources/images/allureTO2.png "Allure TestOps")
 ## Видео прохождения тестов, взятое из среды выполнения (из Selenoid) <a href="https://www.jetbrains.com/idea/"><img src="https://starchenkov.pro/qa-guru/img/skills/Selenoid.svg" width="40" height="40"  alt="Selenoid"/></a>
 
-##screen video
+![alt "Video from Selenoid"](./src/test/resources/images/Video.gif "Video from Selenoid")
