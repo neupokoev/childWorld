@@ -18,6 +18,10 @@ public class DriverUtils {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 
+    public static String getVideoStorage() {
+        return System.getProperty("web.remote.video.storage");
+    }
+
     public static byte[] getScreenshotAsBytes() {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
