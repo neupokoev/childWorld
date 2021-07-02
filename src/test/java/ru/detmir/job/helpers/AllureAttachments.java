@@ -18,8 +18,8 @@ public class AllureAttachments {
     }
 
     @Attachment(value = "Browser Console Logs", type = "text/plain")
-    public static void addBrowserConsoleLogs() {
-        attachAsText(
+    public static String addBrowserConsoleLogs() {
+        return attachAsText(
                 "Browser console logs",
                 String.join("\n", Selenide.getWebDriverLogs(BROWSER))
         );
