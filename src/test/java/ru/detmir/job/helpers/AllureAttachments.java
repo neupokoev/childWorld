@@ -19,7 +19,7 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 import static ru.detmir.job.helpers.DriverUtils.getVideoUrl;
 
 public class AllureAttachments {
-    @Attachment(value = "{attachName} Text", type = "text/plain")
+    //@Attachment(value = "{attachName} Text", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
     }
@@ -42,14 +42,14 @@ public class AllureAttachments {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    //    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
-//    public static String addVideo(String sessionId) {
-//        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-//                + getVideoUrl(sessionId)
-//                + "' type='video/mp4'></video></body></html>";
-//    }
-//
-    //@Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    public static String addVideo(String sessionId) {
+        return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
+                + getVideoUrl(sessionId)
+                + "' type='video/mp4'></video></body></html>";
+    }
+
+/*    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static void addVideo(String sessionId) {
         URL videoUrl = getVideoUrl(sessionId);
         if (videoUrl != null) {
@@ -68,5 +68,5 @@ public class AllureAttachments {
             }
             Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
         }
-    }
+    }*/
 }
