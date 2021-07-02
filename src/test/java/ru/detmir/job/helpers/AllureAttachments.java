@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-import static ru.detmir.job.helpers.Logging.LOGGER;
 import static com.codeborne.selenide.Selenide.sleep;
+import static ru.detmir.job.helpers.Logging.LOGGER;
 
 public class AllureAttachments {
 
@@ -18,6 +18,7 @@ public class AllureAttachments {
         return text;
     }
 
+    @Attachment(value = "{attachName}", type = "text/plain")
     public static void addBrowserConsoleLogs() {
         addMessage("Browser console logs", DriverUtils.getConsoleLogs());
     }
@@ -32,6 +33,7 @@ public class AllureAttachments {
         return DriverUtils.getPageSourceAsBytes();
     }
 
+    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static void addVideo(String sessionId) {
         URL videoUrl = DriverUtils.getVideoUrl(sessionId);
         if (videoUrl != null) {
@@ -52,6 +54,4 @@ public class AllureAttachments {
             Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
         }
     }
-
-
 }
