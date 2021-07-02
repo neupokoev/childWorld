@@ -12,19 +12,22 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 import static ru.detmir.job.helpers.DriverUtils.getVideoUrl;
 
 public class AllureAttachments {
-    @Attachment(value = "{attachName} Text", type = "text/plain")
-    public static String attachAsText(String attachName, String message) {
-        return message;
-    }
-
-    @Attachment(value = "{attachName} Screen", type = "image/png")
+    @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] addScreenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment(value = "Browser console logs", type = "text/plain")
+    @Attachment(value = "Browser Console Logs", type = "text/plain")
     public static void addBrowserConsoleLogs() {
-        String.join("\n", Selenide.getWebDriverLogs(BROWSER));
+        attachAsText(
+                "Browser console logs",
+                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
+        );
+    }
+
+    @Attachment(value = "{attachName}", type = "text/plain")
+    public static String attachAsText(String attachName, String message) {
+        return message;
     }
 
     @Attachment(value = "Page source", type = "text/plain")
@@ -32,7 +35,7 @@ public class AllureAttachments {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    @Attachment(value = "Video attachment", type = "text/html", fileExtension = ".html")
     public static String addVideo(String sessionId) {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
                 + getVideoUrl(sessionId)
