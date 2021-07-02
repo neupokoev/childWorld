@@ -24,7 +24,7 @@ public class TestBase {
     public void addAttachments() {
         String sessionId = DriverUtils.getSessionId();
 
-        AllureAttachments.addScreenshotAs("Last screenshot");
+        AllureAttachments.addScreenshotAs("Screenshot after test");
         AllureAttachments.addPageSource();
         AllureAttachments.addBrowserConsoleLogs();
 

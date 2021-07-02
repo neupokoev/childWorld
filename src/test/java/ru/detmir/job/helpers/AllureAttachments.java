@@ -19,18 +19,17 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 import static ru.detmir.job.helpers.DriverUtils.getVideoUrl;
 
 public class AllureAttachments {
-    @Attachment(value = "{attachName}", type = "text/plain")
+    @Attachment(value = "{attachName} Text", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
     }
 
-
-    @Attachment(value = "{attachName}", type = "image/png")
+    @Attachment(value = "{attachName} Screen", type = "image/png")
     public static byte[] addScreenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment(value = "{attachName}", type = "text/plain")
+    @Attachment(value = "{attachName} Log", type = "text/plain")
     public static void addBrowserConsoleLogs() {
         attachAsText(
                 "Browser console logs",
@@ -50,7 +49,7 @@ public class AllureAttachments {
 //                + "' type='video/mp4'></video></body></html>";
 //    }
 //
-    @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
+    //@Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static void addVideo(String sessionId) {
         URL videoUrl = getVideoUrl(sessionId);
         if (videoUrl != null) {
