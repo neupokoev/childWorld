@@ -1,9 +1,9 @@
 package ru.detmir.job.helpers;
 
-import ru.detmir.job.config.Project;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.detmir.job.config.Project;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +22,11 @@ public class DriverSettings {
             Map<String, Object> mobileDevice = new HashMap<>();
             mobileDevice.put("deviceName", Project.config.browserMobileView());
             chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
+            capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        } else {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--disable-extensions");
+            //chromeOptions.addArguments("--auto-open-devtools-for-tabs");
             capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         }
 
