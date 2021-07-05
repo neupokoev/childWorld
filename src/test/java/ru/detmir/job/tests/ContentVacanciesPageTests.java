@@ -13,13 +13,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ContentTests extends BaseTest {
+public class ContentVacanciesPageTests extends BaseTest {
 
     @Test
-    @Description("Content test")
-    @DisplayName("Test на проверку кнопки показа всех вакансий")
-    void checkVacanciesPageLazyLoad() {
+    @Description("Show more of vacancies test")
+    @DisplayName("Тест на проверку кнопки показа всех вакансий")
+    void checkMoreVacanciesButton() {
         step("Open https://job.detmir.ru/", () -> {
             Selenide.open("https://job.detmir.ru/");
         });
@@ -28,49 +29,51 @@ public class ContentTests extends BaseTest {
             $$("ul li a").findBy(text("Вакансии")).click();
         });
 
-        step("Выбрать категорию ИТ", () -> {
+        step("Выбрать категорию вакансий 'Информационные технологии'", () -> {
             $$(".vacancies-link").findBy(text("Информационные технологии")).click();
         });
 
-        step("Больше вакансий - нажать на кнопку \"показать больше\"", () -> {
+        step("Больше вакансий - нажать на кнопку 'показать еще'", () -> {
             $("div .vacancies-more__show-more").scrollIntoView(true).click();
         });
 
-        step("Проверить, что нет ошибок в консоли", () -> {
+        step("Проверить, что доступно более 11 вакансий на странице", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "500 (Internal Server Error)";
-
             assertThat(consoleLogs).doesNotContain(errorText);
+            assertTrue($$(".vacancies-more-item__head").size() > 11,
+                    "Отображается менее 11 вакансий на странице!");
         });
     }
 
     @Test
-    @Description("Content test")
-    @DisplayName("Test фильтра по станции метро")
+    @Description("Check vacancies page metro station filter")
+    @DisplayName("Тест фильтра по станции метро")
     void checkVacanciesPageMetroStationFilter() {
         step("Открыть страницу вакансий на сайте https://job.detmir.ru", () -> {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
 
-        step("Выбрать метро - Окружная", () -> {
+        step("Выбрать метро - Окружная (МЦК)", () -> {
             $("#subway").$(".subway__input").val("Окружная");
             $(byText("Окружная (МЦК)")).click();
             $("#subway").$(".subway__input").shouldHave(value("Окружная (МЦК)"));
         });
 
-        step("Проверить, что нет 500 ошибки в консоли", () -> {
+        step("Проверить, что есть хотя бы одна вакансия после выбора метро", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "500 (Internal Server Error)";
-
             assertThat(consoleLogs).doesNotContain(errorText);
+            assertTrue($$(".vacancies-more-item__head").size() > 1,
+                    "Отображается меньше 1 вакансии на странице!");
         });
 
     }
 
     @Test
-    @Description("Content test")
-    @DisplayName("Test вакансии ведущего тестировщика по автоматизации")
-    void checkQAVacancy() {
+    @Description("Check automation QA vacancy")
+    @DisplayName("Тест вакансии ведущего тестировщика по автоматизации")
+    void checkAutomationQAVacancy() {
         step("Открыть страницу вакансий на сайте https://job.detmir.ru", () -> {
             Selenide.open("https://job.detmir.ru/vacancies/");
         });
