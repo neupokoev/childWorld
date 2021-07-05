@@ -15,7 +15,7 @@ ___
 
 ## 4 из 5 тестов ПАДАЮТ на данный момент из-за ошибок на сайте
 
-
+![alt "Allure TestOps"](./images/allureTO3.png "Allure TestOps")
 
 ## Используемые параметры по умолчанию для запуска через Jenkins <a href="https://www.jetbrains.com/idea/"><img src="./images/Jenkins.svg" width="30" height="30"  alt="Jenkins"/></a>
 
