@@ -28,7 +28,7 @@ public class MainPageTests extends BaseTest {
 
     @Test
     @Description("Console should not have errors test")
-    @DisplayName("Page console log should not have errors")
+    @DisplayName("Console log на главной странице не должна содержать ошибок")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://job.detmir.ru/'", () ->
                 open("https://job.detmir.ru/"));
