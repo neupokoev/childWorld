@@ -13,7 +13,7 @@ import ru.detmir.job.helpers.DriverSettings;
 import ru.detmir.job.helpers.DriverUtils;
 
 @ExtendWith({AllureJunit5.class})
-public class TestBase {
+public class BaseTest {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());

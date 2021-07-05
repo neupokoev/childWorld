@@ -14,7 +14,8 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ContentTests extends TestBase {
+public class ContentTests extends BaseTest {
+
     @Test
     @Description("Content test")
     @DisplayName("Test на проверку кнопки показа всех вакансий")
@@ -42,7 +43,6 @@ public class ContentTests extends TestBase {
             assertThat(consoleLogs).doesNotContain(errorText);
         });
     }
-
 
     @Test
     @Description("Content test")

@@ -1,6 +1,5 @@
 package ru.detmir.job.helpers;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -8,7 +7,6 @@ import org.openqa.selenium.TakesScreenshot;
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.openqa.selenium.logging.LogType.BROWSER;
 import static ru.detmir.job.helpers.DriverUtils.getVideoUrl;
 
 public class AllureAttachments {
@@ -17,17 +15,13 @@ public class AllureAttachments {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment(value = "Browser Console Logs", type = "text/plain")
-    public static String addBrowserConsoleLogs() {
-        return attachAsText(
-                "Browser console logs",
-                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
-        );
+    @Attachment(value = "{attachName}", type = "text/plain")
+    private static String addMessage(String attachName, String text) {
+        return text;
     }
 
-    @Attachment(value = "{attachName}", type = "text/plain")
-    public static String attachAsText(String attachName, String message) {
-        return message;
+    public static void addBrowserConsoleLogs() {
+        addMessage("Browser console logs", DriverUtils.getConsoleLogs());
     }
 
     @Attachment(value = "Page source", type = "text/plain")

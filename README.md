@@ -13,6 +13,10 @@ ___
 ## Список тестов (для примера) - хранение и анализ в Allure TestOps
 ![alt "Allure TestOps"](./images/allureTO1.png "Allure TestOps")
 
+## 5 из 6 тестов ПАДАЮТ на данный момент из-за ошибок на сайте
+
+
+
 ## Используемые параметры по умолчанию для запуска через Jenkins <a href="https://www.jetbrains.com/idea/"><img src="./images/Jenkins.svg" width="30" height="30"  alt="Jenkins"/></a>
 
 * BROWSER (default chrome)

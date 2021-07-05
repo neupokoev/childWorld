@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SmokeTests extends TestBase {
+public class SmokeTests extends BaseTest {
     @Test
     @Description("Smoke test")
     @DisplayName("Page title should have header text")
