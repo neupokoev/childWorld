@@ -48,7 +48,7 @@ allure serve build/allure-results
 
 ## Оповещение о результатах прохождения тестов через бот в телеграмме <a href="https://www.jetbrains.com/idea/"><img src="https://starchenkov.pro/qa-guru/img/skills/Telegram.svg" width="30" height="30"  alt="Telegram"/></a>
 
-![alt "бот в телеграмме"](./images/bot.png "бот в телеграмме")
+![alt "бот в телеграмме"](./images/bot2.png "бот в телеграмме")
 
 ## Анализ результатов в Jenkins через Allure Reports
 ![alt "Allure Reports"](./images/jenkinsResult.png "Allure Reports")
