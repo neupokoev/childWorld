@@ -1,6 +1,5 @@
 package ru.detmir.job.tests;
 
-import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.detmir.job.helpers.DriverUtils;
@@ -12,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPageTests extends BaseTest {
     @Test
-    @Description("Page title test")
     @DisplayName("Page title should have header text")
     void titleTest() {
         step("Open url 'https://job.detmir.ru/'", () ->
@@ -27,7 +25,6 @@ public class MainPageTests extends BaseTest {
     }
 
     @Test
-    @Description("Console should not have errors test")
     @DisplayName("Console log на главной странице не должна содержать ошибок")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://job.detmir.ru/'", () ->
