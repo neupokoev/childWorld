@@ -17,14 +17,17 @@ public class VacanciesPageTests extends BaseTest {
     @Test
     @DisplayName("Тест на проверку кнопки показа всех вакансий")
     void checkMoreVacanciesButton() {
-        step("Open https://job.detmir.ru/", () ->
-                Selenide.open("https://job.detmir.ru/"));
+        step("Open https://job.detmir.ru/", () -> {
+            Selenide.open("https://job.detmir.ru/");
+        });
 
-        step("Перейти через левое меню в вакансии", () ->
-                $$("ul li a").findBy(text("Вакансии")).click());
+        step("Перейти через левое меню в вакансии", () -> {
+            $$("ul li a").findBy(text("Вакансии")).click();
+        });
 
-        step("Выбрать категорию вакансий 'Информационные технологии'", () ->
-                $$(".vacancies-link").findBy(text("Информационные технологии")).click());
+        step("Выбрать категорию вакансий 'Информационные технологии'", () -> {
+            $$(".vacancies-link").findBy(text("Информационные технологии")).click();
+        });
 
         step("Больше вакансий - нажать на кнопку 'показать еще'", () ->
                 $("div .vacancies-more__show-more").scrollIntoView(true).click());
