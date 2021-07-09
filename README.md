@@ -11,13 +11,13 @@ ___
 ___
 
 ## Список тестов (для примера) - хранение и анализ в Allure TestOps
-![alt "Allure TestOps"](./images/allureTO1.png "Allure TestOps")
+![alt "Allure TestOps"](./images/allureTO4.png "Allure TestOps")
 
 ## 4 из 5 тестов ПАДАЮТ на данный момент из-за ошибок на сайте
 
 ![alt "Allure TestOps"](./images/allureTO3.png "Allure TestOps")
 
-## Используемые параметры по умолчанию для запуска через Jenkins <a href="https://www.jetbrains.com/idea/"><img src="./images/Jenkins.svg" width="30" height="30"  alt="Jenkins"/></a>
+## Используемые параметры по умолчанию [для запуска через Jenkins](https://jenkins.autotests.cloud/job/c06-neoupokoev-childWorldTest/build?delay=0sec) <a href="https://www.jetbrains.com/idea/"><img src="./images/Jenkins.svg" width="30" height="30"  alt="Jenkins"/></a>
 
 * BROWSER (default chrome)
 * BROWSER_VERSION (default 89.0)
